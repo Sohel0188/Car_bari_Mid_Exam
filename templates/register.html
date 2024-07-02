@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<form style="width: 50%; margin: auto;" method="POST">
+    {% csrf_token %}
+    <!-- {{ form|crispy }}-->
+    {% for fm in form %} {{ fm.label_tag }} {{ fm }} {{ fm.errors|striptags }} 
+    {% endfor %}
+    <button class="btn btn-success mt-2" type="submit"> Register </button>
+</form>
+{% endblock %}
